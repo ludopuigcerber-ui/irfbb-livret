@@ -3196,9 +3196,12 @@ function parseCSV(text,filename){
   document.getElementById('csvFileStats').textContent=`${rows.length} ligne${rows.length>1?'s':''} · ${headers.length} colonne${headers.length>1?'s':''} · séparateur "${sep}"`;
   renderCSVPreview(headers,rows);
   renderCSVMapping(headers);
-  document.getElementById('csv-step1').style.display='none';
-  document.getElementById('csv-step2').style.display='';
-  document.getElementById('csvImportBtn').style.display='';
+ const s1=document.getElementById('csv-step1');
+const s2=document.getElementById('csv-step2');
+const btn=document.getElementById('csvImportBtn');
+if(s1)s1.style.display='none';
+if(s2)s2.style.display='';
+if(btn)btn.style.display='';
 }
 
 function parseLine(line,sep){
